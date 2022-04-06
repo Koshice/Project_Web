@@ -1,6 +1,9 @@
+import os
 from django.shortcuts import redirect, render
-from .models import Category
+from .models import Category, Course
 from django.http import HttpResponse
+
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 
 # Create your views here.
 
@@ -47,3 +50,22 @@ def category_update(request, id):
     category.save()
 
     return redirect(category_view)
+
+
+# Call example_01.html
+def show_example_01(request):
+    return render(request, "courses/example_01.html")
+
+
+# Call example_02.html
+def show_example_02(request):
+    num_1 = 1
+    category = Category.objects.all()
+
+    context = {
+        "num_01": num_1,
+        "abc": "This is abc.",
+        "category": category,
+    }
+
+    return render(request, "courses/example_02.html", context)
