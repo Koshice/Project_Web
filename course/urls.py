@@ -10,6 +10,7 @@ urlpatterns = [
     path("category/edit/<int:id>", views.category_edit),
     path("category/back_to_categorylist", views.back_to_categorylist),
     path("category/edit/back_to_categorylist", views.back_to_categorylist),
+
     path("course/", views.course_index),
     path("course/<int:id>", views.course_details),
     path("course/add", views.course_add),

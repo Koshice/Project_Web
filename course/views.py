@@ -8,13 +8,13 @@ from .forms import CategoryForm, CourseForm
 def category_index(request):
     categories = Category.objects.all()
     context = {"categories": categories}
-    return render(request, "course/category/category-index.html", context)
+    return render(request, "course/category/category_index.html", context)
 
 
 def category_details(request, id):
     category = Category.objects.get(id=id)
     context = {"category": category}
-    return render(request, "course/category/category-details.html", context)
+    return render(request, "course/category/category_details.html", context)
 
 
 def category_delete(request, id):
@@ -38,7 +38,7 @@ def category_add(request):
 
     context = {"form": form}
 
-    return render(request, "course/category/course-add.html", context)
+    return render(request, "course/category/category_add.html", context)
 
 
 def category_edit(request, id):
@@ -55,7 +55,7 @@ def category_edit(request, id):
 
     context = {"form": form}
 
-    return render(request, "course/category/course-edit.html", context)
+    return render(request, "course/category/category_edit.html", context)
 
 
 def back_to_categorylist(request):
@@ -68,7 +68,7 @@ def course_index(request):
     context = {
         "courses": courses,
     }
-    return render(request, "course/course/course-index.html", context)
+    return render(request, "course/course/course_index.html", context)
 
 
 def course_details(request, id):
@@ -76,7 +76,7 @@ def course_details(request, id):
     context = {
         "course": course,
     }
-    return render(request, "course/course/course-details.html", context)
+    return render(request, "course/course/course_details.html", context)
 
 
 def course_delete(request, id):
@@ -107,7 +107,7 @@ def course_add(request):
 
     context = {"form": form}
 
-    return render(request, "course/course/course-add.html", context)
+    return render(request, "course/course/course_add.html", context)
 
 
 def course_edit(request, id):
@@ -131,7 +131,7 @@ def course_edit(request, id):
 
     context = {"form": form}
 
-    return render(request, "course/course/course-edit.html", context)
+    return render(request, "course/course/course_add.html", context)
 
 
 def back_to_courselist(request):
