@@ -24,3 +24,11 @@ class Course(models.Model):
 
     def __str__(self):
         return self.code + " (" + self.name_en + ")"
+
+
+class ClassRoom(models.Model):
+    name = models.CharField(max_length=50)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.name

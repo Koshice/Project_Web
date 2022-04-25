@@ -1,6 +1,66 @@
 from django.shortcuts import render, redirect
-from .models import Category, Course
-from .forms import CategoryForm, CourseForm
+from .models import Category, Course, ClassRoom
+from .forms import CategoryForm, CourseForm, ClassRoomForm
+
+# CRUD ClassRoom.
+
+
+def classroom_index(request):
+    classes = ClassRoom.objects.all()
+    context = {"classes": classes, }
+    return render(request, "course/classroom/classroom_index.html", context)
+
+
+def classroom_details(request, id):
+    classroom = ClassRoom.objects.get(id=id)
+    context = {"classroom": classroom}
+    return render(request, "course/classroom/classroom_details.html", context)
+
+
+def classroom_delete(request, id):
+    classroom = ClassRoom.objects.get(id=id)
+    classroom.delete()
+    return redirect(classroom_index)
+
+
+def classroom_add(request):
+    form = ClassRoomForm(request.POST or None)
+
+    if form.is_valid():
+        classroom = ClassRoom()
+
+        classroom.name = request.POST["name"]
+
+        category = Category.objects.get(id=int(request.POST["category"]))
+        classroom.category = category
+
+        classroom.save()
+
+        return redirect(classroom_index)
+
+    context = {"form": form}
+
+    return render(request, "course/classroom/classroom_add.html", context)
+
+
+def classroom_edit(request, id):
+    classroom = ClassRoom.objects.get(id=id)
+    form = ClassRoomForm(request.POST or None, instance=classroom)
+
+    if form.is_valid():
+        classroom.name = request.POST["name"]
+
+        form.save()
+
+        return redirect(classroom_index)
+
+    context = {"form": form}
+
+    return render(request, "course/classroom/classroom_edit.html", context)
+
+
+def back_to_classroomlist(request):
+    return redirect(classroom_index)
 
 # CRUD Category.
 

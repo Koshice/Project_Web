@@ -18,4 +18,12 @@ urlpatterns = [
     path("course/edit/<int:id>", views.course_edit),
     path("course/back_to_courselist", views.back_to_courselist),
     path("course/edit/back_to_courselist", views.back_to_courselist),
+
+    path("classroom/", views.classroom_index),
+    path("classroom/<int:id>", views.classroom_details),
+    path("classroom/add", views.classroom_add),
+    path("classroom/delete/<int:id>", views.classroom_delete),
+    path("classroom/edit/<int:id>", views.classroom_edit),
+    path("classroom/back_to_classroomlist", views.back_to_classroomlist),
+    path("classroom/edit/back_to_classroomlist", views.back_to_classroomlist),
 ]

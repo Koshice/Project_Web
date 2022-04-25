@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<table class="table">
+    <tr>
+        <th>Name</th>
+    </tr>
+
+    <tr>
+        <td>{{classroom.name}}</td>
+    </tr>
+</table>
+
+<a class="btn btn-warning" href="back_to_classroomlist">Back to list</a>
+{% endblock content %}

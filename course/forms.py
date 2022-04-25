@@ -1,5 +1,5 @@
 from django import forms
-from .models import Category, Course
+from .models import Category, Course, ClassRoom
 
 
 class CategoryForm(forms.ModelForm):
@@ -73,6 +73,29 @@ class CourseForm(forms.ModelForm):
                     "class": "form-control border-success mt-1 mb-4",
                     "placeholder": "Please enter hour...",
                     "id": "hour",
+                },
+            ),
+            "category_name": forms.Select(
+                attrs={
+                    "class": "form-select border-success mt-1 mb-4",
+                    "id": "category_name",
+                },
+            ),
+        }
+
+
+class ClassRoomForm(forms.ModelForm):
+    class Meta:
+        model = ClassRoom
+
+        fields = "__all__"
+
+        widgets = {
+            "name": forms.TextInput(
+                attrs={
+                    "class": "form-control border-success mt-1 mb-4",
+                    "placeholder": "Please enter name...",
+                    "id": "name",
                 },
             ),
             "category_name": forms.Select(
