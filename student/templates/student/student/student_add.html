@@ -4,10 +4,10 @@
 <form method="POST">
     {% csrf_token %}
     {{form}}
-
+    <div style="margin-top: 10px">
+        <button class="btn btn-success" type="submit">Add</button>
+        <a class="btn btn-warning" href="back_to_studentlist">Back to list</a>
+    </div>
 </form>
-<div style="margin-top: 10px">
-    <button class="btn btn-success" type="submit">Add</button>
-    <a class="btn btn-warning" href="back_to_studentlist">Back to list</a>
-</div>
+
 {% endblock content %}
