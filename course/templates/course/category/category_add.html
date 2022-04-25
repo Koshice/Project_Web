@@ -5,10 +5,10 @@
     {% csrf_token %}
     {{form}}
 
-    <div class="mt-4">
-        <button class="btn btn-success" type="submit">Add</button>
-    </div>
-</form>
 
-<a class="btn btn-warning" href="back_to_categorylist">Back to list</a>
+</form>
+<div>
+    <button class="btn btn-success" type="submit">Add</button>
+    <a class="btn btn-warning" href="back_to_categorylist">Back to list</a>
+</div>
 {% endblock content %}
