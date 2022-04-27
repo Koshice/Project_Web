@@ -51,4 +51,10 @@ class StudentForm(forms.ModelForm):
                     "id": "course_name",
                 },
             ),
+            "classroom_name": forms.Select(
+                attrs={
+                    "class": "form-select border-success mt-1 mb-4",
+                    "id": "classroom_name",
+                },
+            ),
         }

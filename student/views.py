@@ -1,6 +1,7 @@
+import re
 from django.shortcuts import render, redirect
 
-from course.models import Course
+from course.models import ClassRoom, Course
 from .models import Student
 from .forms import StudentForm
 
@@ -43,6 +44,9 @@ def student_add(request):
         course = Course.objects.get(id=int(request.POST["course"]))
         student.course = course
 
+        classroom = ClassRoom.objects.get(id=int(request.POST["classroom"]))
+        student.classroom = classroom
+
         student.save()
 
         return redirect(student_index)
@@ -66,6 +70,9 @@ def student_edit(request, id):
 
         course = Course.objects.get(id=int(request.POST["course"]))
         student.course = course
+
+        classroom = ClassRoom.objects.get(id=int(request.POST["classroom"]))
+        student.classroom = classroom
 
         form.save()
 
