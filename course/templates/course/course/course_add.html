@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<link rel="stylesheet" href="% static 'css/index.css' %">
+<form method="POST">
+    {% csrf_token %}
+    {{form}}
+
+    <div style="margin-top: 10px">
+        <button class="btn btn-success" type="submit">Add</button>
+        <a class="btn btn-warning" href="back_to_courselist">Back to list</a>
+    </div>
+</form>
+
+{% endblock content %}
