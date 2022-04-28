@@ -1,0 +1,32 @@
+
+/*------------- heading -------------*/
+.logo{
+    width: 200px;
+    margin: 0px 0px 2px -4px;
+}
+.main-nav li a{
+    font-weight: 700;
+    font-size: 140%;
+}
+.main-nav li a:hover{
+    border-bottom: 2px solid white;
+}
+.main-nav li{
+    margin-right: 40px;
+}
+.bg{
+    background-image: linear-gradient(to right top,rgb(138,43,226,0.8),rgb(255, 160, 122,0.8)),
+    url("../img/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.srch{
+    border-color: black;
+    border-width: 2px;
+}
+.bt{
+    border-width: 2px;
+    background-color: white;
+    color: black;
+}

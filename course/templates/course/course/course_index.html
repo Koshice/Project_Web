@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 <a href="add" class="btn btn-sm btn-success">Add</a>
 
 <table class="table">
