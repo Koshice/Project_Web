@@ -8,6 +8,7 @@
 
 <table class="table">
     <tr>
+        <th>No. </th>
         <th>Student_Code</th>
         <th>Name</th>
         <th>Class</th>
@@ -17,6 +18,7 @@
 
     {% for item in students %}
     <tr>
+        <td>{{forloop.counter}}</td>
         <td>{{item.student_code}}</td>
         <td>{{item.name}}</td>
         <td>{{item.classroom}}</td>
