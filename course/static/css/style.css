@@ -7,6 +7,8 @@
 .main-nav li a {
     font-weight: 700;
     font-size: 140%;
+    text-decoration: none;
+    color: white;
 }
 
 .main-nav li a:hover {
@@ -14,7 +16,7 @@
 }
 
 .main-nav li {
-    margin-right: 40px;
+    margin-right: 50px;
 }
 
 .bg {
@@ -35,8 +37,4 @@
     border-width: 2px;
     background-color: white;
     border-radius: 10px;
-}
-
-.nav-item .nav-link {
-    color: white !important;
 }
