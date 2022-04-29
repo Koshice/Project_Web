@@ -1,13 +1,16 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 <form method="POST">
     {% csrf_token %}
     {{form}}
 
     <div class="mt-4">
         <button class="btn btn-success" type="submit">Edit</button>
-        <a class="btn btn-warning" href="back_to_categorylist">Back to list</a>
+        <a class="btn btn-warning" href="back_to_classroomlist">Back to list</a>
     </div>
 </form>
 

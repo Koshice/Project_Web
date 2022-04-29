@@ -1,6 +1,5 @@
 from django import forms
-from .models import Student
-
+from .models import Student, Result
 
 
 class StudentForm(forms.ModelForm):
@@ -43,6 +42,42 @@ class StudentForm(forms.ModelForm):
                     "class": "form-control border-success mt-1 mb-4",
                     "placeholder": "Please enter date of birth...",
                     "id": "dob",
+                },
+            ),
+            "course_name": forms.Select(
+                attrs={
+                    "class": "form-select border-success mt-1 mb-4",
+                    "id": "course_name",
+                },
+            ),
+            "classroom_name": forms.Select(
+                attrs={
+                    "class": "form-select border-success mt-1 mb-4",
+                    "id": "classroom_name",
+                },
+            ),
+        }
+
+
+class ResultForm(forms.ModelForm):
+    class Meta:
+        model = Result
+
+        fields = "__all__"
+
+        widgets = {
+            "student_name": forms.TextInput(
+                attrs={
+                    "class": "form-control border-success mt-1 mb-4",
+                    "placeholder": "Please enter name...",
+                    "id": "student_name",
+                },
+            ),
+            "mark": forms.TextInput(
+                attrs={
+                    "class": "form-control border-success mt-1 mb-4",
+                    "placeholder": "Please enter mark...",
+                    "id": "mark",
                 },
             ),
             "course_name": forms.Select(

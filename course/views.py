@@ -196,3 +196,6 @@ def course_edit(request, id):
 
 def back_to_courselist(request):
     return redirect(course_index)
+
+def show_home(request):
+    return render(request, "course/home.html")

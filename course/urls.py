@@ -26,4 +26,6 @@ urlpatterns = [
     path("classroom/edit/<int:id>", views.classroom_edit),
     path("classroom/back_to_classroomlist", views.back_to_classroomlist),
     path("classroom/edit/back_to_classroomlist", views.back_to_classroomlist),
+
+    path("home/", views.show_home),
 ]
