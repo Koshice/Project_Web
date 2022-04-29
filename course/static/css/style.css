@@ -1,32 +1,42 @@
-
 /*------------- heading -------------*/
-.logo{
+.logo {
     width: 200px;
     margin: 0px 0px 2px -4px;
 }
-.main-nav li a{
+
+.main-nav li a {
     font-weight: 700;
     font-size: 140%;
 }
-.main-nav li a:hover{
+
+.main-nav li a:hover {
     border-bottom: 2px solid white;
 }
-.main-nav li{
+
+.main-nav li {
     margin-right: 40px;
 }
-.bg{
-    background-image: linear-gradient(to right top,rgb(138,43,226,0.8),rgb(255, 160, 122,0.8)),
-    url("../img/background.jpg");
+
+.bg {
+    background-image: linear-gradient(to right top, rgb(138, 43, 226, 0.8), rgb(255, 160, 122, 0.8)),
+        url("../img/background.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
-.srch{
+
+.srch {
     border-color: black;
     border-width: 2px;
+    border-radius: 10px;
 }
-.bt{
+
+.bt {
     border-width: 2px;
     background-color: white;
-    color: black;
+    border-radius: 10px;
+}
+
+.nav-item .nav-link {
+    color: white !important;
 }
