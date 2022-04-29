@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<a href="add" class="btn btn-sm btn-success">Add</a>
+
+<table class="table">
+    <tr>
+        <th>No. </th>
+        <th>Name</th>
+        <th>Mark</th>
+        <th>Class</th>
+        <th>Course</th>
+        <th></th>
+    </tr>
+
+    {% for item in results %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{item.student}}</td>
+        <td>{{item.mark}}</td>
+        <td>{{item.classroom}}</td>
+        <td>{{item.course}}</td>
+        <td>
+            <a href="{{item.id}}" class="btn btn-sm btn-warning">Details</a>
+            <a href="edit/{{item.id}}" class="btn btn-sm btn-primary">Edit</a>
+            <a href="delete/{{item.id}}" class="btn btn-sm btn-danger">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+{% endblock content %}
