@@ -73,12 +73,12 @@ class ResultForm(forms.ModelForm):
                     "id": "student_name",
                 },
             ),
-            "mark": forms.TextInput(
-                attrs={
-                    "class": "form-control border-success mt-1 mb-4",
-                    "placeholder": "Please enter mark...",
-                    "id": "mark",
-                },
+            "mark": forms.Select(
+                choices={
+                    ('Distinction', 'Distinction'),
+                    ('Merit', 'Merit'),
+                    ('Pass', 'Pass'),
+                }
             ),
             "course_name": forms.Select(
                 attrs={
