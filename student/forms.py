@@ -19,7 +19,7 @@ class StudentForm(forms.ModelForm):
             "name": forms.TextInput(
                 attrs={
                     "class": "form-control border-success mt-1 mb-4",
-                    "placeholder": "Please enter last name...",
+                    "placeholder": "Please enter student name...",
                     "id": "name",
                 },
             ),
