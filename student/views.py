@@ -97,14 +97,6 @@ def result_index(request):
     return render(request, "student/result/result_index.html", context)
 
 
-def result_details(request, id):
-    result = Result.objects.get(id=id)
-    context = {
-        "result": result,
-    }
-    return render(request, "student/result/result_details.html", context)
-
-
 def result_delete(request, id):
     result = Result.objects.get(id=id)
     result.delete()
