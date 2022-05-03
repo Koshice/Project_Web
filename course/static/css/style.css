@@ -66,12 +66,8 @@
 
 /* id */
 
-a {
-    text-decoration: none;
-}
-
 #main_1 {
-    background-color: #a29bfe;
+    background-color: #ffeaa7;
 }
 
 #main_2 {
@@ -188,7 +184,7 @@ h4 {
 .social_icons li i:hover,
 .social_icons li i:active {
     transform: scale(1.3);
-    color: #e74c3c;
+    color: #0984e3;
 }
 
 .social_icons h4 {
@@ -196,7 +192,7 @@ h4 {
 }
 
 .content {
-    height: 1000px;
+    height: 100vh;
 }
 
 
