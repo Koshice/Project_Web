@@ -12,7 +12,6 @@ urlpatterns = [
     path("student/edit/back_to_studentlist", views.back_to_studentlist),
 
     path("result/", views.result_index),
-    path("result/<int:id>", views.result_details),
     path("result/add", views.result_add),
     path("result/delete/<int:id>", views.result_delete),
     path("result/edit/<int:id>", views.result_edit),
