@@ -30,4 +30,4 @@ class Result(models.Model):
     classroom = models.ForeignKey(ClassRoom, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.student + self.mark
+        return str(self.student) + "_" + self.mark
