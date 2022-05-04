@@ -209,3 +209,31 @@ h4 {
     font-weight: bold;
     font-size: 15px;
 }
+/*------------------------------
+------------- website optimization -------------
+-------------------------------*/
+
+/* Big tablet to 1200px; */
+@media only screen and (max-width:1090px){ 
+    /* nothing */
+} 
+
+/* Small tablet to big tablet from 768px to 1023px; */
+@media only screen and (max-width:991px){
+    .content {
+        height: 130vh;
+    }
+    .contract_section {
+        height: 500px;
+    }
+}
+
+/* small phones to small tablets; */
+@media only screen and (max-width:576px){
+    .logo{
+        margin: 0 0 2px -50px;
+    }
+    .content{
+        height: 220vh;
+    }
+} 
