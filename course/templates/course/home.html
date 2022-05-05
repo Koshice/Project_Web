@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% comment %} main {% endcomment %}
 
 {% load static %}
 
@@ -6,10 +7,10 @@
 
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-{% comment %} main {% endcomment %}
+
 
 <h1 class="topic">
-    Student Management Systerm
+    Student Management System
 </h1>
 <div class="container mt-3">
     <div class="row card-list">
@@ -18,7 +19,7 @@
                 <i class="bi bi-mortarboard-fill"></i>
             </div>
             <div class="box">
-                <h1>4</h1>
+                <h1>{{ courses_count }}</h1>
                 <h3>Course</h3>
             </div>
             <div class="card_link">
@@ -31,7 +32,7 @@
                 <i class="bi bi-book"></i>
             </div>
             <div class="box">
-                <h1>4</h1>
+                <h1> {{ classes_count }} </h1>
                 <h3>Class</h3>
             </div>
             <div class="card_link">
@@ -44,7 +45,7 @@
                 <i class="bi bi-people-fill"></i>
             </div>
             <div class="box">
-                <h1>50</h1>
+                <h1>{{ student_count }}</h1>
                 <h3>Student</h3>
             </div>
             <div class="card_link">
@@ -57,7 +58,7 @@
                 <i class="bi bi-bar-chart-line-fill"></i>
             </div>
             <div class="box">
-                <h1>100</h1>
+                <h1>{{ mark_count }}</h1>
                 <h3>Mark</h3>
             </div>
             <div class="card_link">

@@ -164,6 +164,20 @@ def result_edit(request, id):
     return render(request, "student/result/result_edit.html", context)
 
 
+def total_count(request):
+    courses_count = Course.objects.all().count()
+    classes_count = ClassRoom.objects.all().count()
+    student_count = Student.objects.all().count()
+    mark_count = Result.objects.all().count()
+    context = {
+        'courses_count': courses_count,
+        'classes_count': classes_count,
+        'student_count': student_count,
+        'mark_count': mark_count,
+    }
+    return render(request, 'course/home.html', context)
+
+
 def back_to_resultlist(request):
     return redirect(result_index)
 
