@@ -1,8 +1,11 @@
+from operator import index
 from django.shortcuts import render, redirect
 
 from course.models import ClassRoom, Course
 from .models import Student, Result
 from .forms import StudentForm, ResultForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
 
 # CRUD Student.
 
@@ -23,12 +26,14 @@ def student_details(request, id):
     return render(request, "student/student/student_details.html", context)
 
 
+@login_required(login_url="../login")
 def student_delete(request, id):
     student = Student.objects.get(id=id)
     student.delete()
     return redirect(student_index)
 
 
+@login_required(login_url="../student/login")
 def student_add(request):
     form = StudentForm(request.POST or None)
 
@@ -56,6 +61,7 @@ def student_add(request):
     return render(request, "student/student/student_add.html", context)
 
 
+@login_required(login_url="../login")
 def student_edit(request, id):
     student = Student.objects.get(id=id)
     form = StudentForm(request.POST or None, instance=student)
@@ -97,12 +103,14 @@ def result_index(request):
     return render(request, "student/result/result_index.html", context)
 
 
+@login_required(login_url="../../student/login")
 def result_delete(request, id):
     result = Result.objects.get(id=id)
     result.delete()
     return redirect(result_index)
 
 
+@login_required(login_url="../student/login")
 def result_add(request):
     form = ResultForm(request.POST or None)
 
@@ -129,6 +137,7 @@ def result_add(request):
     return render(request, "student/result/result_add.html", context)
 
 
+@login_required(login_url="../../student/login")
 def result_edit(request, id):
     result = Result.objects.get(id=id)
     form = ResultForm(request.POST or None, instance=result)
@@ -157,3 +166,22 @@ def result_edit(request, id):
 
 def back_to_resultlist(request):
     return redirect(result_index)
+
+
+def admin_login(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+
+        admin = authenticate(username=username, password=password)
+
+        if admin is not None and admin.is_active:
+            login(request, admin)
+            return redirect(student_index)
+
+    return render(request, "student/login.html")
+
+
+def admin_logout(request):
+    logout(request)
+    return redirect(student_index)

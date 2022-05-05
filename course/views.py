@@ -1,6 +1,9 @@
+from turtle import home
 from django.shortcuts import render, redirect
 from .models import Category, Course, ClassRoom
 from .forms import CategoryForm, CourseForm, ClassRoomForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login, logout
 
 # CRUD ClassRoom.
 
@@ -17,12 +20,14 @@ def classroom_details(request, id):
     return render(request, "course/classroom/classroom_details.html", context)
 
 
+@login_required(login_url="../../course/login")
 def classroom_delete(request, id):
     classroom = ClassRoom.objects.get(id=id)
     classroom.delete()
     return redirect(classroom_index)
 
 
+@login_required(login_url="../../course/login")
 def classroom_add(request):
     form = ClassRoomForm(request.POST or None)
 
@@ -43,6 +48,7 @@ def classroom_add(request):
     return render(request, "course/classroom/classroom_add.html", context)
 
 
+@login_required(login_url="../../course/login")
 def classroom_edit(request, id):
     classroom = ClassRoom.objects.get(id=id)
     form = ClassRoomForm(request.POST or None, instance=classroom)
@@ -77,12 +83,14 @@ def category_details(request, id):
     return render(request, "course/category/category_details.html", context)
 
 
+@login_required(login_url="../../course/login")
 def category_delete(request, id):
     category = Category.objects.get(id=id)
     category.delete()
     return redirect(category_index)
 
 
+@login_required(login_url="../../course/login")
 def category_add(request):
     form = CategoryForm(request.POST or None)
 
@@ -101,6 +109,7 @@ def category_add(request):
     return render(request, "course/category/category_add.html", context)
 
 
+@login_required(login_url="../../course/login")
 def category_edit(request, id):
     category = Category.objects.get(id=id)
     form = CategoryForm(request.POST or None, instance=category)
@@ -139,12 +148,14 @@ def course_details(request, id):
     return render(request, "course/course/course_details.html", context)
 
 
+@login_required(login_url="../../course/login")
 def course_delete(request, id):
     course = Course.objects.get(id=id)
     course.delete()
     return redirect(course_index)
 
 
+@login_required(login_url="../../course/login")
 def course_add(request):
     form = CourseForm(request.POST or None)
 
@@ -170,6 +181,7 @@ def course_add(request):
     return render(request, "course/course/course_add.html", context)
 
 
+@login_required(login_url="../../course/login")
 def course_edit(request, id):
     course = Course.objects.get(id=id)
     form = CourseForm(request.POST or None, instance=course)
@@ -200,3 +212,22 @@ def back_to_courselist(request):
 
 def show_home(request):
     return render(request, "course/home.html")
+
+
+def admin_login(request):
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+
+        admin = authenticate(username=username, password=password)
+
+        if admin is not None and admin.is_active:
+            login(request, admin)
+            return redirect(category_index)
+
+    return render(request, "student/login.html")
+
+
+def admin_logout(request):
+    logout(request)
+    return redirect(category_index)
