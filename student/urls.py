@@ -17,4 +17,7 @@ urlpatterns = [
     path("result/edit/<int:id>", views.result_edit),
     path("result/back_to_resultlist", views.back_to_resultlist),
     path("result/edit/back_to_resultlist", views.back_to_resultlist),
+
+    path("student/login", views.admin_login),
+    path("student/logout", views.admin_logout),
 ]

@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{% load static %}
+
+{%block content%}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<form method="POST">
+    {%csrf_token%}
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+        <label for="username">Username</label>
+    </div>
+    <div class="form-floating">
+        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+        <label for="password">Password</label>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-success mt-2">Login</button>
+        <a href="/student/student/logout" class="btn btn-warning mt-2">Logout</a>
+    </div>
+
+</form>
+{%endblock content%}

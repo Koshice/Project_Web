@@ -27,5 +27,10 @@ urlpatterns = [
     path("classroom/back_to_classroomlist", views.back_to_classroomlist),
     path("classroom/edit/back_to_classroomlist", views.back_to_classroomlist),
 
+    path("course/login", views.admin_login),
+    path("course/logout", views.admin_login),
+
     path("home/", views.show_home),
+
+
 ]
