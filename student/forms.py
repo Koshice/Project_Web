@@ -40,6 +40,7 @@ class StudentForm(forms.ModelForm):
             "dob": forms.TextInput(
                 attrs={
                     "class": "form-control border-success mt-1 mb-4",
+                    "placeholder": "Please enter date of birth...",
                     "id": "dob",
                 },
             ),
